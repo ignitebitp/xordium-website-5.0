@@ -1,0 +1,119 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              String   @id @default(uuid())
+  email           String   @unique
+  username        String?  @unique
+  rollNo          String?  @unique
+  name            String
+  password        String
+  role            String   @default("MODERATOR")
+  isActive        Boolean  @default(true)
+  mustSetPassword Boolean  @default(false)
+  authVersion     Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  invitationsSent Invitation[] @relation("InvitedBy")
+}
+
+model Invitation {
+  id          String    @id @default(uuid())
+  email       String
+  role        String
+  token       String    @unique
+  invitedById String
+  invitedBy   User      @relation("InvitedBy", fields: [invitedById], references: [id], onDelete: Cascade)
+  expiresAt   DateTime
+  acceptedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([email])
+  @@index([expiresAt])
+}
+
+model EventRegistration {
+  id            String   @id @default(uuid())
+  eventId       String
+  eventName     String
+  fullName      String
+  email         String
+  phone         String
+  collegeName   String
+  branch        String
+  year          String
+  rollNumber    String
+  teamName      String   @default("")
+  teamMembers   Json     @default("[]")
+  // Hackathon team declared they are NOT from BIT (waives @bitmesra.ac.in).
+  isExternalTeam Boolean @default(false)
+  createdAt     DateTime @default(now())
+
+  @@index([eventId])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model AuthRateLimit {
+  key             String   @id
+  windowStartedAt DateTime
+  count           Int
+  updatedAt       DateTime @updatedAt
+
+  @@index([windowStartedAt])
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  tag         String
+  title       String
+  category    String
+  description String
+  image       String
+  prizePool   String
+  venue       String
+  format      String
+  schedule    String
+  teamSize    String?
+  cta         String
+  featured    Boolean  @default(false)
+  posterUrl   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  registrations Registration[]
+}
+
+model CarouselImage {
+  id                String   @id @default(uuid())
+  sourceName        String   @unique
+  sourceFingerprint String
+  imageData         Bytes
+  altText           String   @default("Xordium event photograph")
+  sortOrder         Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([sortOrder])
+}
+
+model Registration {
+  id        String   @id @default(uuid())
+  email     String
+  name      String?
+  createdAt DateTime @default(now())
+
+  eventId String
+  event   Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([eventId])
+  @@index([email])
+}
