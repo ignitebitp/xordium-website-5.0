@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { readdir, stat } from "node:fs/promises";
 import { join } from "node:path";
+import * as path from "node:path";
 
 const CAROUSEL_SOURCE_DIR = join(process.cwd(), "src", "frontend", "carousel-source");
 const IMAGE_EXTENSIONS = new Set([
@@ -11,6 +12,7 @@ export async function GET() {
   try {
     const files = await readdir(CAROUSEL_SOURCE_DIR).catch(() => [] as string[]);
 
+    // @ts-ignore
     const images = await Promise.all(
       files.map(async (file) => {
         const filePath = join(CAROUSEL_SOURCE_DIR, file);
@@ -32,7 +34,7 @@ export async function GET() {
           sourceName: file,
         };
       })
-    ).filter((img): img is NonNullable<typeof img> => img !== null);
+    ).filter((img: null): img is NonNullable<typeof img> => img !== null);
 
     return NextResponse.json(images);
   } catch (error) {

@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Serve carousel images from public folder
+  async rewrites() {
+    return [
+      {
+        source: "/carousel/:file*",
+        destination: "/public/carousel/:file*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

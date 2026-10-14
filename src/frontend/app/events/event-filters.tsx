@@ -74,7 +74,7 @@ export default function EventFilters() {
             const posterOnLeft = (i + 1) % 2 === 0;
 
             const Poster = (
-              <div className="group relative h-40 w-full shrink-0 sm:h-44 lg:h-full lg:w-1/2">
+              <div className="group relative mx-auto aspect-[4/5] w-48 shrink-0 lg:mx-0 lg:h-full lg:w-auto">
                 <div className="relative h-full w-full overflow-hidden">
                   <Image
                     src={e.image}
@@ -108,7 +108,7 @@ export default function EventFilters() {
 
             const Info = (
               <div
-                className={`flex w-full flex-col justify-center bg-[#101218] p-4 sm:p-5 lg:w-1/2 ${posterOnLeft ? "lg:pl-6" : "lg:pr-6"
+                className={`flex w-full flex-col justify-center bg-[#101218] p-4 sm:p-5 lg:flex-1 ${posterOnLeft ? "lg:pl-6" : "lg:pr-6"
                   }`}
               >
                 {/* Index */}
