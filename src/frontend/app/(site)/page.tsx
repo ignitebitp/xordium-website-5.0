@@ -120,7 +120,7 @@ export default function Home() {
               </a>
             ) : null}
           </div>
-          <div
+          {/* <div
             className="cx-stats cx-rise"
             style={{ animationDelay: "600ms" }}
           >
@@ -130,7 +130,7 @@ export default function Home() {
                 <span className="cx-stat-l">{s.label}</span>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         <aside className="cx-hero-telemetry cx-rise" style={{ animationDelay: "680ms" }} aria-hidden="true">
