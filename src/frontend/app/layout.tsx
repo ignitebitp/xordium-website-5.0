@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Barlow_Condensed, Rajdhani, Space_Mono } from "next/font/google";
-import SiteHeader from "@/components/site-header";
-import SiteFooter from "@/components/site-footer";
 import "./globals.css";
 
 // Self-hosted via next/font: no render-blocking Google Fonts requests,
@@ -53,14 +51,7 @@ export default function RootLayout({
       className={`${displayFont.variable} ${monoFont.variable} ${cyberFont.variable}`}
     >
       <body className="bg-[#0a0c10] text-white antialiased">
-        {/* Structural shell only — the sticker collage is gone for good. */}
-        <div className="collage-shell">
-          <div className="collage-content">
-            <SiteHeader />
-            {children}
-            <SiteFooter />
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );

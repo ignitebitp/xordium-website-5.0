@@ -32,10 +32,10 @@ function CoreCard({
 }) {
   const [imgSrc, setImgSrc] = useState(resolveImage(member.image));
 
-  const sizeClasses = {
-    lg: "w-40 h-40 sm:w-48 sm:h-48",
-    md: "w-32 h-32 sm:w-36 sm:h-36",
-    sm: "w-24 h-24",
+  const widthClasses = {
+    lg: "w-40 sm:w-48",
+    md: "w-32 sm:w-36",
+    sm: "w-24",
   };
 
   const nameClasses = {
@@ -46,16 +46,16 @@ function CoreCard({
 
   return (
     <div className="glass-panel group flex flex-col items-center gap-3 p-3">
-      {/* Photo */}
+      {/* Photo — 5:4 aspect ratio to match 1350×1080 source images */}
       <div
-        className={`relative ${sizeClasses[size]} rounded-full overflow-hidden border-2 border-white/10 group-hover:border-red-500/60 transition-all duration-300 shadow-lg group-hover:shadow-red-500/20 group-hover:shadow-xl`}
+        className={`relative ${widthClasses[size]} aspect-[5/4] rounded-lg overflow-hidden border-2 border-white/10 group-hover:border-red-500/60 transition-all duration-300 shadow-lg group-hover:shadow-red-500/20 group-hover:shadow-xl`}
       >
         <Image
           src={imgSrc}
           alt={member.name}
           fill
           sizes="(max-width: 640px) 96px, 192px"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
           onError={() => setImgSrc(PLACEHOLDER_SVG)}
           unoptimized={imgSrc.startsWith("data:")}
         />
@@ -87,13 +87,14 @@ function CoordinatorCard({ member }: { member: CoordinatorMember }) {
 
   return (
     <div className="glass-panel group flex w-full flex-col items-center gap-3 p-3">
-      <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-cyan-400/60 transition-all duration-300 shadow-lg group-hover:shadow-cyan-400/20 group-hover:shadow-xl">
+      {/* Photo — 5:4 aspect ratio to match 1350×1080 source images */}
+      <div className="relative w-28 sm:w-32 aspect-[5/4] rounded-lg overflow-hidden border-2 border-white/10 group-hover:border-cyan-400/60 transition-all duration-300 shadow-lg group-hover:shadow-cyan-400/20 group-hover:shadow-xl">
         <Image
           src={imgSrc}
           alt={member.name}
           fill
           sizes="128px"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
           onError={() => setImgSrc(PLACEHOLDER_SVG)}
           unoptimized={imgSrc.startsWith("data:")}
         />

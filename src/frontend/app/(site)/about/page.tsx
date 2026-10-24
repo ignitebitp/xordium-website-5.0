@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/section-heading";
+import TeamSection from "@/components/team-section";
 
 const scale = [
   {
@@ -237,6 +238,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Team ──────────────────────────────────────────────── */}
+      <TeamSection />
 
       {/* ── CTA ───────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pb-14">
