@@ -33,7 +33,7 @@ export const registerEvents: RegisterEvent[] = [
     accent: "#ff2b1f",
     wide: true,
     ghost: "12H",
-    formUrl: "",
+    formUrl: "https://forms.gle/PUFUSseRoGCWbR7X7",
   },
   {
     slug: "cp-contest",
