@@ -15,20 +15,6 @@ export const heroStats: { value: string; label: string }[] = [
   { value: "500+", label: "Operators" },
 ];
 
-export const tickerKeywords: string[] = [
-  "12 Hour Hackathon",
-  "Code Red CP",
-  "Chase the Grid",
-  "Ad Verse",
-  "Cyber Psychosis",
-  "Pixel Pulse",
-  "The Foundry",
-  "Esports Arena",
-  "Gen AI Lab",
-  "BIT Patna",
-  "Ignite x Esports",
-];
-
 /** Used when /api/site-settings is unreachable or has no deadline. */
 export const FALLBACK_DEADLINE = "2026-11-20T09:00:00+05:30";
 

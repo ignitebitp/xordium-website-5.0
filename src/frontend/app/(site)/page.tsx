@@ -5,7 +5,7 @@ import FeaturedSection from "@/components/featured-section";
 import HomepageCarousel from "@/components/homepage-carousel";
 import SectionHeading from "@/components/section-heading";
 import TimetableSection from "@/components/timetable-section";
-import { tickerKeywords } from "@/data/site-config";
+import { BROCHURE_URL, tickerKeywords } from "@/data/site-config";
 
 function Ticker() {
   // Duplicated list so the -50% marquee loop is seamless.
@@ -47,6 +47,91 @@ export default function Home() {
         <span className="cx-hero-rail cx-hero-rail--r" aria-hidden="true">
           SYS.ONLINE // UPLINK STABLE // XORDIUM CORE v5.0
         </span>
+
+        <div className="cx-hero-inner">
+          <div className="cx-hero-status cx-rise" style={{ animationDelay: "0ms" }}>
+            <span className="cx-hero-chip cx-hero-chip--live">
+              <span className="cx-status-dot" aria-hidden="true" />
+              Sys.online
+            </span>
+            <span className="cx-hero-chip">// Encrypted channel</span>
+            <span className="cx-hero-chip">Node-05 // BIT Patna</span>
+          </div>
+          <p
+            className="cx-hero-kicker cx-rise"
+            style={{ animationDelay: "80ms" }}
+          >
+            ■ Birla Institute of Technology // Ignite × Esports
+          </p>
+          <h1
+            className="cx-hero-title cx-rise"
+            style={{ animationDelay: "160ms" }}
+          >
+            <span className="cx-glitch" data-text="Xordium">
+              Xordium
+            </span>{" "}
+            <span className="cx-hero-5">5.0</span>
+          </h1>
+          <p
+            className="cx-hero-sub cx-rise"
+            style={{ animationDelay: "240ms" }}
+          >
+            Year 2026 // Flagship technical symbiosis × premier esports arena
+          </p>
+          <div className="cx-hero-log cx-rise" style={{ animationDelay: "300ms" }} aria-hidden="true">
+            <div>
+              &gt; boot xordium.core v5.0 … OK
+            </div>
+            <div>
+              &gt; arena grid armed — awaiting operators
+              <span className="cx-hero-cursor" />
+            </div>
+          </div>
+          <p
+            className="cx-hero-blurb cx-rise"
+            style={{ animationDelay: "360ms" }}
+          >
+            Where cybernetic intellect confronts elite esports execution. A
+            week of inter-collegiate competition — showcasing the pinnacle of
+            collegiate esports and raw intellectual horsepower.
+          </p>
+          <div className="cx-hero-barcode cx-rise" style={{ animationDelay: "400ms" }} aria-hidden="true" />
+          <div className="mt-6 cx-rise" style={{ animationDelay: "440ms" }}>
+            <HomepageCountdown caption="T-minus to arena lockdown" />
+          </div>
+          <div
+            className="cx-hero-cta cx-rise"
+            style={{ animationDelay: "520ms" }}
+          >
+            <Link href="/register" className="cx-btn cx-btn--acid">
+              Enter the arena ↗
+            </Link>
+            <Link href="/events" className="cx-btn cx-btn--ghost">
+              Explore events →
+            </Link>
+            {BROCHURE_URL ? (
+              <a
+                href={BROCHURE_URL}
+                className="cx-btn cx-btn--ghost"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ↓ Brochure [PDF]
+              </a>
+            ) : null}
+          </div>
+          {/* <div
+            className="cx-stats cx-rise"
+            style={{ animationDelay: "600ms" }}
+          >
+            {heroStats.map((s) => (
+              <div key={s.label} className="cx-stat">
+                <span className="cx-stat-v">{s.value}</span>
+                <span className="cx-stat-l">{s.label}</span>
+              </div>
+            ))}
+          </div> */}
+        </div>
 
         <aside className="cx-hero-telemetry cx-rise" style={{ animationDelay: "680ms" }} aria-hidden="true">
           <h2>Uplink telemetry</h2>
