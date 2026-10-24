@@ -104,7 +104,10 @@ function CoordinatorCard({ member }: { member: CoordinatorMember }) {
         <p className="font-display font-bold text-white text-sm leading-tight">
           {member.name}
         </p>
-        <p className="mt-0.5 font-mono text-[10px] text-white">
+        <p className="mt-0.5 font-mono text-[10px] tracking-widest text-cyan-400 uppercase">
+          {member.post}
+        </p>
+        <p className="mt-0.5 font-mono text-[10px] text-white/60">
           {member.rollNo}
         </p>
       </div>
@@ -244,29 +247,25 @@ export default function TeamSection() {
 
           {/* President */}
           <div className="flex justify-center mb-10">
-            <div className="relative">
-              <CoreCard member={president} size="lg" />
-            </div>
+            <CoreCard member={president} size="lg" />
           </div>
 
           {/* Vice Presidents */}
           <div className="flex justify-center gap-12 sm:gap-20 mb-12">
             {vicePresidents.map((vp, i) => (
-              <div key={i} className="relative">
-                <CoreCard member={vp} size="lg" />
-              </div>
+              <CoreCard key={i} member={vp} size="lg" />
             ))}
           </div>
 
-          {/* Connector line between president row and VP row and grid */}
-          <div className="relative mb-6">
+          {/* Divider */}
+          <div className="relative mb-8">
             <div className="border-t border-white/10" />
-            <p className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0d0f14] px-3 font-mono text-[10px] tracking-[0.2em] text-white uppercase whitespace-nowrap">
+            <p className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0d0f14] px-3 font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase whitespace-nowrap">
               Post Holders
             </p>
           </div>
 
-          {/* Other post holders — 4 columns */}
+          {/* Core Executives grid — 4 columns */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
             {otherCoreExecutives.map((m, i) => (
               <CoreCard key={i} member={m} size="md" />

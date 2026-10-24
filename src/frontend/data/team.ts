@@ -8,113 +8,171 @@ export interface CoreMember {
 export interface CoordinatorMember {
   name: string;
   rollNo: string;
+  post: string; // "Senior Coordinator" | "Junior Coordinator"
   image: string; // path relative to /public
 }
 
-// ─── Core Executives ─────────────────────────────────────────────────────────
-// The president is displayed prominently at the top, centered.
 
+// ─── President ────────────────────────────────────────────────────────────────
 export const president: CoreMember = {
-  name: "President Name",
-  rollNo: "BIT/XXXXX/XX",
+  name: "Kishlaya Sinha",
+  rollNo: "BTECH/15001/23",
   post: "President",
-  image: "/assets/team/placeholder.jpg",
+  image: "/assets/team/Kishlaya-Sinha-BTECH-15001-23.webp",
 };
 
-// Exactly 2 Vice Presidents — displayed side by side below the president.
+// ─── Vice Presidents ──────────────────────────────────────────────────────────
 export const vicePresidents: CoreMember[] = [
   {
-    name: "Vice President Name",
-    rollNo: "BIT/XXXXX/XX",
+    name: "Saumya Kumari",
+    rollNo: "BTECH/15014/23",
     post: "Vice President",
-    image: "/assets/team/placeholder.jpg",
+    image: "/assets/team/Saumya-Kumari-BTECH-15014-23.webp",
   },
   {
-    name: "Vice President Name",
-    rollNo: "BIT/XXXXX/XX",
+    name: "Aditya Agarwal",
+    rollNo: "BTECH/15011/23",
     post: "Vice President",
-    image: "/assets/team/placeholder.jpg",
+    image: "/assets/team/Aditya-Agarwal-BTECH-15011-23.webp",
   },
 ];
 
-// All remaining post-holders displayed in a 4-column grid below the VPs.
-// Add/remove entries freely — order here determines display order.
+// ─── Core Executives (2023 batch) ───────────────────────────────────────────
+// Displayed in a 4-column grid. Add/remove entries freely.
 export const otherCoreExecutives: CoreMember[] = [
+
   {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "General Secretary",
-    image: "/assets/team/placeholder.jpg",
+    name: "Kalpana",
+    rollNo: "BTECH/15031/23",
+    post: "Core Executive",
+    image: "/assets/team/Kalpana-BTECH-15031-23.webp",
   },
   {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "Treasurer",
-    image: "/assets/team/placeholder.jpg",
+    name: "Shivam",
+    rollNo: "BTECH/15034/23",
+    post: "Core Executive",
+    image: "/assets/team/Shivam-BTECH-15034-23.webp",
   },
   {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "Joint Secretary",
-    image: "/assets/team/placeholder.jpg",
+    name: "Nidhi Sinha",
+    rollNo: "BTECH/15197/23",
+    post: "Core Executive",
+    image: "/assets/team/Nidhi-Sinha-BTECH-15197-23.webp",
   },
   {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "Technical Head",
-    image: "/assets/team/placeholder.jpg",
+    name: "Prince Chaturvedi",
+    rollNo: "BTECH/15160/23",
+    post: "Core Executive",
+    image: "/assets/team/Prince-Chaturvedi-BTECH-15160-23.webp",
   },
   {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "Design Head",
-    image: "/assets/team/placeholder.jpg",
-  },
-  {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "PR Head",
-    image: "/assets/team/placeholder.jpg",
-  },
-  {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "Marketing Head",
-    image: "/assets/team/placeholder.jpg",
-  },
-  {
-    name: "Member Name",
-    rollNo: "BIT/XXXXX/XX",
-    post: "Content Head",
-    image: "/assets/team/placeholder.jpg",
+    name: "Prem Kumar Singh",
+    rollNo: "BTECH/15029/23",
+    post: "Core Executive",
+    image: "/assets/team/Prem-Kumar-Singh-BTECH-15029-23.webp",
   },
 ];
 
-// ─── Senior Coordinators ─────────────────────────────────────────────────────
-// Sorted A→Z automatically — enter in any order you like.
-// Gallery shows 4 at a time with ← → arrows to navigate.
+// ─── Senior Coordinators (2024 batch) ────────────────────────────────────────
+// Roll numbers ending in /24 — displayed in paginated gallery.
+// Sorted A→Z automatically at render time.
 
 export const seniorCoordinators: CoordinatorMember[] = [
-  { name: "Senior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Senior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Senior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Senior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Senior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Senior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
+  {
+    name: "Daya Shankar",
+    rollNo: "BTECH/15203/24",
+    post: "Senior Coordinator",
+    image: "/assets/team/Daya-Shankar-BTECH-15203-24.webp",
+  },
+  {
+    name: "Rajeev Raj",
+    rollNo: "BTECH/15174/24",
+    post: "Senior Coordinator",
+    image: "/assets/team/Rajeev-Raj-BTECH-15174-24.webp",
+  },
+  {
+    name: "Kshitij Tiwari",
+    rollNo: "BTECH/15135/24",
+    post: "Senior Coordinator",
+    image: "/assets/team/Kshitij-Tiwari-BTECH-15135-24.webp",
+  },
+  {
+    name: "Ashutosh Kumar",
+    rollNo: "BTECH/15197/24",
+    post: "Senior Coordinator",
+    image: "/assets/team/Ashutosh-Kumar-BTECH-15197-24.webp",
+  },
+  {
+    name: "Aayush Arya",
+    rollNo: "BTECH/15206/24",
+    post: "Senior Coordinator",
+    image: "/assets/team/Aayush-Arya-BTECH-15206-24.webp",
+  },
 ];
 
-// ─── Junior Coordinators ─────────────────────────────────────────────────────
-// Sorted A→Z automatically — enter in any order you like.
-// Gallery shows 4 at a time with ← → arrows to navigate.
+// ─── Junior Coordinators (2025 batch) ────────────────────────────────────────
+// Roll numbers ending in /25 — displayed in paginated gallery.
+// Sorted A→Z automatically at render time.
 
 export const juniorCoordinators: CoordinatorMember[] = [
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
-  { name: "Junior Coordinator Name", rollNo: "BIT/XXXXX/XX", image: "/assets/team/placeholder.jpg" },
+  {
+    name: "Aditya Shrivastava",
+    rollNo: "BTECH/15036/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Aditya-Shrivastava-BTECH-15036-25.webp",
+  },
+  {
+    name: "Puru Saraswat",
+    rollNo: "BTECH/15151/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Puru-Saraswat-BTECH-15151-25.webp",
+  },
+  {
+    name: "Janmejay Shibaprasad Mahanta",
+    rollNo: "BTECH/15123/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Janmejay-Shibaprasad-Mahanta-BTECH-15123-25.png",
+  },
+  {
+    name: "Harsh Raj",
+    rollNo: "BTECH/15119/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Harsh-Raj-BTECH-15119-25.webp",
+  },
+  {
+    name: "Raushan Raj",
+    rollNo: "BTECH/15220/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Raushan-Raj-BTECH-15220-25.png",
+  },
+  {
+    name: "Kshitiz Tiwari",
+    rollNo: "BTECH/15057/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Kshitiz-Tiwari-BTECH-15057-25.png",
+  },
+  {
+    name: "Deep Anchal",
+    rollNo: "BCA/15015/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Deep-Anchal-BCA-15015-25.webp",
+  },
+  {
+    name: "Pranay Anand",
+    rollNo: "BTECH/15087/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Pranay-Anand-BTECH-15087-25.webp",
+  },
+  {
+    name: "Raj Laxmi",
+    rollNo: "BTECH/15023/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Raj-Laxmi-BTECH-15023-25.webp",
+  },
+  {
+    name: "Utkarsh Priyadarshi",
+    rollNo: "BTECH/15224/25",
+    post: "Junior Coordinator",
+    image: "/assets/team/Utkarsh-Priyadarshi-BTECH-15224-25.webp",
+  },
 ];
