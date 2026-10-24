@@ -1877,8 +1877,8 @@ button {
 
 @media (min-width: 1024px) {
   .cx-event {
-    grid-template-columns: 1.05fr 1fr;
-    min-height: 380px;
+    grid-template-columns: 1.6fr 1fr;
+    min-height: 440px;
   }
   .cx-event--flip .cx-event-media {
     order: 2;
@@ -1890,7 +1890,8 @@ button {
 
 .cx-event-media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
+  min-height: 300px;
   overflow: hidden;
   background: #0b0d12;
 }
@@ -1899,6 +1900,7 @@ button {
   .cx-event-media {
     aspect-ratio: auto;
     height: 100%;
+    min-height: 400px;
   }
 }
 
@@ -2592,7 +2594,7 @@ button {
 
 @media (min-width: 768px) {
   .cx-flag-body {
-    grid-template-columns: minmax(0, 1fr) 13rem;
+    grid-template-columns: minmax(0, 1fr) 28rem;
     gap: 1.6rem;
     padding: 1.6rem;
   }
@@ -2603,13 +2605,13 @@ button {
     order: 1;
   }
   .cx-flag--detail .cx-flag-body {
-    grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 32rem) minmax(0, 1fr);
   }
 }
 
 .cx-flag-poster {
   position: relative;
-  min-height: 250px;
+  min-height: 400px;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 10%);
   background: #0b0d12;
@@ -2618,6 +2620,7 @@ button {
 @media (min-width: 768px) {
   .cx-flag-poster {
     min-height: 100%;
+    min-height: 500px;
   }
 }
 
@@ -2877,13 +2880,14 @@ button {
 
 @media (min-width: 900px) {
   .cx-dos-grid {
-    grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
   }
 }
 
 .cx-dos-media {
   position: relative;
   aspect-ratio: 4 / 5;
+  min-height: 280px;
   overflow: hidden;
   background: rgb(16 18 24 / 60%);
   border-bottom: 1px solid rgb(255 255 255 / 10%);
@@ -2893,10 +2897,21 @@ button {
   .cx-dos-media {
     border-right: 1px solid rgb(255 255 255 / 10%);
     border-bottom: none;
+    min-height: 100%;
+  }
+}
+
+/* On mobile, make poster taller - 3:4 aspect gives more height */
+@media (max-width: 899px) {
+  .cx-dos-media {
+    aspect-ratio: 3 / 4;
+    min-height: 350px;
   }
 }
 
 .cx-dos-media img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   filter: saturate(0.9) contrast(1.05);
   transition: transform 0.45s ease, filter 0.45s ease;
@@ -3057,6 +3072,12 @@ button {
   background: rgb(0 0 0 / 35%);
 }
 
+.cx-event-carousel-card .cx-dos-foot {
+  padding: 1.5rem 2.5rem 2rem;
+  gap: 1rem 1.5rem;
+  margin-top: auto;
+}
+
 .cx-dos-entry {
   display: flex;
   flex-wrap: wrap;
@@ -3079,6 +3100,136 @@ button {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 12px;
   color: rgb(255 255 255 / 75%);
+}
+
+/* ---------- event carousel ---------- */
+
+.cx-event-carousel-card .cx-dos-title {
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 1.1;
+}
+
+.cx-event-carousel-card .cx-dos-blurb {
+  font-size: clamp(1.375rem, 2vw, 2rem);
+  line-height: 1.8;
+}
+
+.cx-event-carousel-card .cx-dos-long {
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  line-height: 1.9;
+}
+
+.cx-event-carousel-card .cx-dos-meta {
+  gap: 1rem 2rem;
+  padding-top: 1rem;
+}
+
+.cx-event-carousel-card .cx-dos-meta dt {
+  font-size: clamp(0.875rem, 1.1vw, 1.125rem);
+  margin-bottom: 0.3rem;
+}
+
+.cx-event-carousel-card .cx-dos-meta dd {
+  font-size: clamp(1rem, 1.3vw, 1.375rem);
+}
+
+.cx-event-carousel-card .cx-dos-prize {
+  font-size: clamp(1.5rem, 2.25vw, 2.5rem);
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgb(255 255 255 / 14%);
+}
+
+.cx-event-carousel-card .cx-dos-hl {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.cx-event-carousel-card .cx-dos-hl li {
+  font-size: clamp(1rem, 1.3vw, 1.375rem);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.cx-event-carousel-card {
+  position: absolute;
+  top: 0;
+  width: 38%;
+  background: rgb(25 27 34 / 98%);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 2.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cx-event-carousel-card:hover {
+  box-shadow: 0 0 40px -20px var(--accent, var(--color-acid));
+  border-color: var(--accent, var(--color-acid));
+}
+
+.cx-event-carousel-enter {
+  transform: translateX(-50%);
+  will-change: transform, opacity;
+  opacity: 0.6;
+  z-index: 1;
+  width: 38%;
+}
+
+.cx-event-carousel-enter[style*="left: 50%"] {
+  opacity: 1;
+  z-index: 3;
+  transform: translateX(-50%) scale(1.15);
+  width: 45%;
+}
+
+.cx-event-carousel-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  min-height: 600px;
+  overflow: hidden;
+  background: rgb(16 18 24 / 60%);
+}
+
+.cx-event-carousel-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(0.9) contrast(1.05);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.cx-event-carousel-card:hover .cx-event-carousel-media img {
+  transform: scale(1.04);
+  filter: saturate(1.05) contrast(1.08);
+}
+
+.cx-event-carousel-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem 2.5rem 2.5rem;
+  overflow-y: auto;
+  gap: 1.5rem;
+}
+
+@media (max-width: 899px) {
+  .cx-event-carousel-media {
+    aspect-ratio: 3 / 4;
+    min-height: 500px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cx-event-carousel-card {
+    width: 28%;
+  }
+  .cx-event-carousel-enter {
+    left: var(--pos, 0);
+  }
 }
 
 /* ---------- about page (.cx-about-*) ----------
@@ -3130,7 +3281,7 @@ button {
 /* banner poster */
 .cx-about-poster {
   position: relative;
-  min-height: 240px;
+  min-height: 400px;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 14%);
   background: rgb(8 9 13 / 82%);
