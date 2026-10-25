@@ -4,7 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const links = [
+type NavigationLink = {
+  href: string;
+  label: string;
+  sr?: string;
+  desktopOnly?: boolean;
+};
+
+const links: NavigationLink[] = [
   { href: "/", label: "Home" },
   { href: "/events", label: "Events" },
   { href: "/about", label: "Intel", sr: "About" },
