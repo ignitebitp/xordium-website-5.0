@@ -9,7 +9,6 @@ import { FALLBACK_TIMETABLE } from "@/data/site-config";
 // section populated when the API is unreachable.
 export default function TimetableSection() {
   const [entries, setEntries] = useState<TimetableEntry[] | null>(null);
-  const [activeDay, setActiveDay] = useState<string | null>(null);
 
   useEffect(() => {
     fetchTimetable()
@@ -21,10 +20,9 @@ export default function TimetableSection() {
       });
   }, []);
 
-  const loaded = entries ?? [];
-  const days = [...new Set(loaded.map((e) => e.day))];
-  const selectedDay = activeDay && days.includes(activeDay) ? activeDay : days[0];
-  const visible = loaded.filter((e) => e.day === selectedDay);
+  const schedule = [...(entries ?? [])].sort(
+    (first, second) => first.sortOrder - second.sortOrder,
+  );
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-14">
@@ -33,23 +31,6 @@ export default function TimetableSection() {
         title="Operations schedule"
         blurb="Multi-day competitive continuum across the BIT collegiate campus. All times indexed to Indian Standard Time (IST)."
       />
-      <div
-        className="cx-sched-tabs"
-        role="group"
-        aria-label="Festival days"
-      >
-        {days.map((d) => (
-          <button
-            key={d}
-            type="button"
-            aria-pressed={d === selectedDay}
-            onClick={() => setActiveDay(d)}
-            className="cx-sched-tab"
-          >
-            {d}
-          </button>
-        ))}
-      </div>
       <div className="space-y-2">
         {entries === null
           ? [1, 2, 3].map((i) => (
@@ -59,9 +40,11 @@ export default function TimetableSection() {
                 aria-hidden="true"
               />
             ))
-          : visible.map((s) => (
+          : schedule.map((s) => (
               <div key={s.id} className="cx-sched-row">
-                <span className="cx-sched-time">{s.time}</span>
+                <span className="cx-sched-time">
+                  {s.day} · {s.time}
+                </span>
                 <div>
                   <h3 className="cx-sched-title">{s.title}</h3>
                   <p className="cx-sched-detail">{s.detail}</p>
