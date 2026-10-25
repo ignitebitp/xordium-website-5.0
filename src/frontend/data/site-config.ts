@@ -11,8 +11,21 @@ export const BROCHURE_URL = "";
 export const heroStats: { value: string; label: string }[] = [
   { value: "07", label: "Combat arenas" },
   { value: "04", label: "Festival days" },
-  { value: "₹25K", label: "Prize pool" },
   { value: "500+", label: "Operators" },
+];
+
+export const tickerKeywords: string[] = [
+  "12 Hour Hackathon",
+  "Code Red CP",
+  "Chase the Grid",
+  "Ad Verse",
+  "Cyber Psychosis",
+  "Pixel Pulse",
+  "The Foundry",
+  "Esports Arena",
+  "Gen AI Lab",
+  "BIT Patna",
+  "Ignite x Esports",
 ];
 
 /** Used when /api/site-settings is unreachable or has no deadline. */

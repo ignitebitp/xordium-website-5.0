@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import HomepageCountdown from "@/components/homepage-countdown";
-import FeaturedSection from "@/components/featured-section";
 import HomepageCarousel from "@/components/homepage-carousel";
 import SectionHeading from "@/components/section-heading";
 import TimetableSection from "@/components/timetable-section";
@@ -159,9 +158,6 @@ export default function Home() {
 
         <Ticker />
       </section>
-
-      {/* FEATURED */}
-      <FeaturedSection />
 
       <div className="cx-tape cx-tape--red" aria-hidden="true" />
 
