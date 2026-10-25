@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { toFestEvent, type DbEventRow, type FestEvent } from "@/lib/events";
 import { FALLBACK_EVENTS } from "@/data/site-config";
-import EventCarousel from "@/components/event-carousel";
+import StackedEventCard from "@/components/stacked-event-card";
 
 type SortKey = "prize" | "date" | "title";
 
@@ -124,7 +124,7 @@ export default function EventFilters() {
         ■ Event protocols <strong>[{String(filteredEvents.length).padStart(2, "0")} active]</strong>
       </p>
 
-      {/* Event carousel */}
+      {/* Event directory */}
       {events === null ? (
         <div className="flex flex-col gap-5" aria-hidden="true">
           {[0, 1].map((i) => (
@@ -137,7 +137,16 @@ export default function EventFilters() {
           Clear the search or adjust the filters to rescan the directory.
         </div>
       ) : (
-        <EventCarousel events={filteredEvents} />
+        <div className="flex flex-col gap-5">
+          {filteredEvents.map((event, index) => (
+            <StackedEventCard
+              key={event.slug}
+              event={event}
+              index={index}
+              total={filteredEvents.length}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
