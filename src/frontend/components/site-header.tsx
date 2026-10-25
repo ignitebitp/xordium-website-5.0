@@ -9,7 +9,7 @@ const links = [
   { href: "/events", label: "Events" },
   { href: "/about", label: "Intel", sr: "About" },
   { href: "/support", label: "Comms", sr: "Support" },
-  { href: "/admin", label: "Admin", sr: "Admin", desktopOnly: true },
+  // { href: "/admin", label: "Admin", sr: "Admin", desktopOnly: true },
 ];
 
 export default function SiteHeader() {
